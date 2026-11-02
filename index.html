@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DailyOra</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">YOUR DAILY SPACE</p>
+          <h1>DailyOra To-Do List <span>✦</span></h1>
+          <p class="subtitle">Small steps make big progress.</p>
+        </div>
+        <div class="date-badge" id="todayDate"></div>
+      </header>
+
+      <section class="auth-card" id="authCard">
+        <h2>Sign in to sync your tasks</h2>
+        <p class="auth-note">
+          Create an account or sign in to access your tasks on other devices.
+        </p>
+        <form id="authForm">
+          <label class="sr-only" for="emailInput">Email address</label>
+          <input
+            id="emailInput"
+            type="email"
+            placeholder="Email address"
+            autocomplete="email"
+            required
+          />
+          <label class="sr-only" for="passwordInput">Password</label>
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="Password (at least 6 characters)"
+            autocomplete="current-password"
+            minlength="6"
+            required
+          />
+          <div class="auth-buttons">
+            <button class="add-button" type="submit" id="signInButton">
+              Sign in
+            </button>
+            <button class="secondary-button" type="button" id="signUpButton">
+              Create account
+            </button>
+          </div>
+        </form>
+        <p id="authMessage" class="status-message" role="status"></p>
+      </section>
+
+      <section id="todoSection" hidden>
+        <div class="account-row">
+          <span id="signedInAs"></span>
+          <button id="signOutButton" class="text-button" type="button">
+            Sign out
+          </button>
+        </div>
+
+        <section class="task-card" aria-label="Add a task">
+          <form id="taskForm">
+            <label class="sr-only" for="taskInput">New task</label>
+            <input
+              id="taskInput"
+              type="text"
+              placeholder="What do you need to do?"
+              maxlength="120"
+              autocomplete="off"
+              required
+            />
+            <button class="add-button" type="submit">+ Add task</button>
+          </form>
+        </section>
+
+        <section class="list-heading">
+          <div>
+            <h2>Today's tasks</h2>
+            <p id="taskSummary">Loading your tasks...</p>
+          </div>
+          <button id="clearCompleted" class="text-button" type="button">
+            Clear completed
+          </button>
+        </section>
+
+        <div class="progress-track" aria-label="Task completion progress">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✓</div>
+          <h3>All clear for now!</h3>
+          <p>Add a task above and make today count.</p>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <span>One task at a time.</span>
+        <span>✦ Stay focused</span>
+      </footer>
+    </main>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
